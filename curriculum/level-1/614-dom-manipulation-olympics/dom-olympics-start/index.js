@@ -24,9 +24,9 @@ for (let i = 0; i < messageLeft.length; i++) {
 }
 
 for (let i = 0; i < messageRight.length; i++) {
-    if (i == 0) 
+    if (i === 0) 
         messageRight[i].innerHTML = "I will only accept if it includes an all expense paid trip to the Bahamas.";
-    else if (i == 1)
+    else if (i === 1)
         messageRight[i].innerHTML = "Ok, now you are speaking my language.";
 }
 
