@@ -1,83 +1,7 @@
 const readline = require('readline-sync');
-
-// Player Class
-class Player {
-  constructor(name) {
-    this.name = name;
-    this.hp = 50;
-    this.minDamage = 5;
-    this.maxDamage = 15;
-    this.inventory = [];
-    this.enemiesKilled = 0;
-  }
-
-  attack() {
-    const damage = Math.floor(Math.random() * (this.maxDamage - this.minDamage + 1)) + this.minDamage; 
-    console.log(`${this.name} attacks for ${damage} damage!`);
-    return damage;
-  }
-
-  takeDamage(damage) {
-    this.hp -= damage;
-    console.log(`${this.name} takes ${damage} damage! HP: ${this.hp}`);
-  }
-
-  heal(amount) {
-    this.hp += amount;
-    console.log(`${this.name} gains ${amount} HP! HP: ${this.hp}`);
-  }
-
-  addToInventory(item) {
-    this.inventory.push(item);
-    console.log(`${this.name} found a ${item.name}!`);
-  }
-}
-
-// Enemy Class
-class Enemy {
-  constructor(name, hp, minDamage, maxDamage) {
-    this.name = name;
-    this.hp = hp;
-    this.minDamage = minDamage;
-    this.maxDamage = maxDamage;
-  }
-
-  attack() {
-    const damage = Math.floor(Math.random() * (this.maxDamage - this.minDamage + 1)) + this.minDamage;
-    console.log(`${this.name} strikes back for ${damage} damage!`);
-    return damage;
-  }
-
-  takeDamage(damage) {
-    this.hp -= damage;
-    console.log(`Enemy HP: ${this.hp}`);
-  }
-}
-
-// Item Class
-class Item {
-  constructor(name, healing = 0, damage = 0) {
-    this.name = name;
-    this.healing = healing;
-    this.damage = damage;
-  }
-
-  use(target) {
-    if (this.name === "Healing Potion") {
-      console.log(`${target.name} uses ${this.name} and heals for ${this.healing} HP!`);
-      target.heal(this.healing);
-    } else if (this.name === "Fire Potion") {
-      console.log(`${target.name} uses ${this.name} on the enemy for ${this.damage} damage!`);
-      target.takeDamage(this.damage);
-    } else if (this.name === "Mysterious Potion") {
-      const newHp = Math.floor(Math.random() * target.hp) + 1; // Random HP between 1 and max HP
-      target.hp = newHp;
-      console.log(`${target.name} drinks the Mysterious Potion! Their HP is now ${newHp}!`);
-    } else {
-      console.log(`${this.name} doesn't seem to do anything.`);
-    }
-  }
-}
+const Player = require('./Player'); // Import Player class
+const Enemy = require('./Enemy'); // Import Enemy class
+const Item = require('./Item');   // Import Item class
 
 // Create Player and Enemy instances
 const player = new Player(playerName);
@@ -109,7 +33,6 @@ function createRandomItem() {
 
   return new Item(itemData.name, itemData.healing, itemData.damage);
 }
-
 
 // Battle Function
 function battle() {
