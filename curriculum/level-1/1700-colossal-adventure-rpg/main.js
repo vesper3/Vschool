@@ -3,9 +3,14 @@ const Player = require('./Player'); // Import Player class
 const Enemy = require('./Enemy'); // Import Enemy class
 const Item = require('./Item');   // Import Item class
 
+// Start the game and get player name
+console.log("Welcome to the world of EPIC RPG!\n");
+const playerName = readline.question("Brave adventurer, what is your name? ");
+console.log(`\nGreetings, ${playerName}! Your legend begins now...\n`);
+
 // Create Player and Enemy instances
 const player = new Player(playerName);
-let enemy = new Enemy("Goblin", 30, 5, 15); // Create an initial enemy
+let enemy = new Enemy("Goblin", 30, 5, 15); // Create an initial tempory enemy 
 
 // Function to create a random enemy
 function createRandomEnemy() {
@@ -116,10 +121,6 @@ function battle() {
 
   return true; // Game continues
 }
-
-console.log("Welcome to the world of EPIC RPG!\n");
-const playerName = readline.question("Brave adventurer, what is your name? ");
-console.log(`\nGreetings, ${playerName}! Your legend begins now...\n`);
 
 // Game Loop
 let isPlaying = true;

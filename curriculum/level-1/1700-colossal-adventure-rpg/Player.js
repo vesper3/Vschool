@@ -22,6 +22,11 @@ class Player {
 
   heal(amount) {
     this.hp += amount;
+    
+    if (this.hp > 50) {
+      this.hp = 50;
+    }
+    
     console.log(`${this.name} gains ${amount} HP! HP: ${this.hp}`);
   }
 
