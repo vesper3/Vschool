@@ -25,7 +25,7 @@ while (isRunning) {
             "You find yourself locked in a room and you don't know how you got there.\n" +
             "After the shock of waking up in an unfimiliar place, you begin to notice your surroundings.\n" +
             "You are in a dimly lit apartment room furnished with 1960 decor. There is an odd hole in the wall.\n" +
-            "There are no windows, just a door a table, and that weird hole.\n" +
+            "There are no windows, just a door, a table, and that weird hole.\n" +
             "There is a note on the table that says'FIND THE KEY'.\n"
         );
 
