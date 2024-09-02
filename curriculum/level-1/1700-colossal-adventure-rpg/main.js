@@ -15,9 +15,9 @@ let enemy = new Enemy("Goblin", 30, 5, 15); // Create an initial tempory enemy
 // Function to create a random enemy
 function createRandomEnemy() {
   const enemyTypes = [
-    { name: "Goblin", hp: 30, minDamage: 5, maxDamage: 10 },
-    { name: "Wolf", hp: 25, minDamage: 3, maxDamage: 8 },
-    { name: "Skeleton", hp: 40, minDamage: 7, maxDamage: 12 },
+    { name: "Goblin", hp: 30, minDamage: 5, maxDamage: 12 },
+    { name: "Wolf", hp: 25, minDamage: 3, maxDamage: 10 },
+    { name: "Skeleton", hp: 40, minDamage: 7, maxDamage: 15 },
   ];
 
   const randomIndex = Math.floor(Math.random() * enemyTypes.length);
@@ -44,7 +44,7 @@ function battle() {
   console.log("\nPrepare for battle! against " + enemy.name + "!\n");
 
   while (player.hp > 0 && enemy.hp > 0) {
-    const choice = readline.question("Attack (a), use Item (i), or Run (r)?").toLowerCase();
+    const choice = readline.question("Attack (a), use Item (i), or Run (r)?: ").toLowerCase();
 
     if (choice === 'a') {
       // Player Attacks
@@ -54,7 +54,7 @@ function battle() {
       if (enemy.hp <= 0) {
         console.log("\nYou vanquished the enemy!");
         player.enemiesKilled++;
-        player.heal(15);
+        player.heal(10);
         player.addToInventory(createRandomItem());
         break;
       }
@@ -88,7 +88,7 @@ function battle() {
           const selectedItem = player.inventory[itemChoice - 1];
 
           // Choose target for the item
-          const targetChoice = readline.question("Use on (p)layer or (e)nemy? ").toLowerCase();
+          const targetChoice = readline.question("Use on (p)layer or (e)nemy?: ").toLowerCase();
           if (targetChoice === 'p') {
             selectedItem.use(player);
             player.inventory.splice(itemChoice - 1, 1); // Remove the item from inventory

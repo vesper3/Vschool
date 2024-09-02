@@ -10,7 +10,7 @@ class Enemy {
 
   attack() {
     const damage = Math.floor(Math.random() * (this.maxDamage - this.minDamage + 1)) + this.minDamage;
-    console.log(`${this.name} strikes back for ${damage} damage!`);
+    console.log(`\n${this.name} strikes back for ${damage} damage!`);
     return damage;
   }
 
@@ -26,7 +26,7 @@ class Enemy {
       this.hp = this.maxHP;
     }
     
-    console.log(`${this.name} gains ${amount} HP! HP: ${this.hp}`);
+    console.log(`${this.name} gains ${amount} HP! HP: ${this.hp}\n`);
   }
 }
 

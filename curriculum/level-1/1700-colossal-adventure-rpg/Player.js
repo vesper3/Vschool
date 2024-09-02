@@ -2,7 +2,7 @@
 class Player {
   constructor(name) {
     this.name = name;
-    this.hp = 50;
+    this.hp = 45;
     this.minDamage = 5;
     this.maxDamage = 15;
     this.inventory = [];
@@ -11,7 +11,7 @@ class Player {
 
   attack() {
     const damage = Math.floor(Math.random() * (this.maxDamage - this.minDamage + 1)) + this.minDamage; 
-    console.log(`${this.name} attacks for ${damage} damage!`);
+    console.log(`\n${this.name} attacks for ${damage} damage!`);
     return damage;
   }
 
@@ -26,13 +26,13 @@ class Player {
     if (this.hp > 50) {
       this.hp = 50;
     }
-    
-    console.log(`${this.name} gains ${amount} HP! HP: ${this.hp}`);
+
+    console.log(`${this.name} gains ${amount} HP! HP: ${this.hp}\n`);
   }
 
   addToInventory(item) {
     this.inventory.push(item);
-    console.log(`${this.name} found a ${item.name}!`);
+    console.log(`${this.name} found a ${item.name}!\n`);
   }
 }
 
